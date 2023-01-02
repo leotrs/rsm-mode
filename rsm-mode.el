@@ -440,6 +440,23 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; linter via flycheck
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(flycheck-define-checker rsm-lint
+  "Linter for RSM using rsm-linter.
+
+See URL `https://write-rsm.org/'."
+  :command ("rsm-lint" source)
+  :error-patterns
+  ((info line-start (one-or-more alpha) ":" line ":" column ": " "LINT" ": " (message) line-end)
+   (warning line-start (one-or-more alpha) ":" line ":" column ": " "WRN" ": " (message) line-end)
+   (error line-start (one-or-more alpha) ":" line ":" column ": " "ERROR" ": " (message) line-end))
+    :modes rsm-mode)
+
+(add-to-list 'flycheck-checkers 'rsm-lint)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; export the mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
