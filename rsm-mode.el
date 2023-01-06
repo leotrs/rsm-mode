@@ -189,6 +189,7 @@
     (bibliography)
     (figure)
     (algorithm)
+    (codeblock)
     (enumerate)
     (itemize)
     (definition)
@@ -199,6 +200,7 @@
     (note)
     (span)
     (cite)
+    (code)
     (ref)
     (prev)
     (prev2)
@@ -237,7 +239,8 @@
     (strong)
     (emphas)
     (keywords)
-    (MSC)
+    (msc)
+    (lang)
     (goal)
     ] @meta-tag
 
